@@ -637,4 +637,14 @@ public class CMap
     {
         return cmapName;
     }
+
+
+    public Map<Integer, String> getCharToUnicodeTwoBytes() {
+        return charToUnicodeTwoBytes;
+    }
+
+
+    public Map<String, byte[]> getUnicodeToByteCodes() {
+        return unicodeToByteCodes;
+    }
 }

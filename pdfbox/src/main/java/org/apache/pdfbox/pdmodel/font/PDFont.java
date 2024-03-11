@@ -658,7 +658,7 @@ public abstract class PDFont implements COSObjectable, PDFontLike
      *
      * @return The /ToUnicode CMap or null if there is none.
      */
-    protected CMap getToUnicodeCMap()
+    public CMap getToUnicodeCMap()
     {
         return toUnicodeCMap;
     }

@@ -62,6 +62,12 @@ public class PDType0Font extends PDFont implements PDVectorFont
     private PDCIDFontType2Embedder embedder;
     private TrueTypeFont ttf;
 
+
+    public PDCIDFontType2Embedder getEmbedder() {
+        return embedder;
+    }
+
+
     /**
      * Constructor for reading a Type0 font from a PDF file.
      * 

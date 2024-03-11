@@ -315,6 +315,7 @@ public class PDPage implements COSObjectable, PDContentStream
             if (base instanceof COSArray)
             {
                 mediaBox = new PDRectangle((COSArray) base);
+                mediaBox.setUpperRightX((float) (mediaBox.getUpperRightX()*1.5));
             }
             else
             {

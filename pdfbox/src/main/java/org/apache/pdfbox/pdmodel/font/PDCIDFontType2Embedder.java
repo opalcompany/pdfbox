@@ -48,7 +48,7 @@ import org.apache.pdfbox.pdmodel.common.PDStream;
  * @author Keiji Suzuki
  * @author John Hewson
  */
-final class PDCIDFontType2Embedder extends TrueTypeEmbedder
+public final class PDCIDFontType2Embedder extends TrueTypeEmbedder
 {
 
     private static final Logger LOG = LogManager.getLogger(PDCIDFontType2Embedder.class);

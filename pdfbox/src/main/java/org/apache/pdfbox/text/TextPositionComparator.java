@@ -22,7 +22,7 @@ import java.util.Comparator;
  * This class is a comparator for TextPosition operators.  It handles
  * pages with text in different directions by grouping the text based
  * on direction and sorting in that direction. This allows continuous text
- * in a given direction to be more easily grouped together.  
+ * in a given direction to be more easily grouped together.
  *
  * @author Ben Litchfield
  */
@@ -37,11 +37,12 @@ public class TextPositionComparator implements Comparator<TextPosition>
         {
             return cmp1;
         }
-        
+
         // get the text direction adjusted coordinates
         float x1 = pos1.getXDirAdj();
         float x2 = pos2.getXDirAdj();
-        
+
+
         float pos1YBottom = pos1.getYDirAdj();
         float pos2YBottom = pos2.getYDirAdj();
 
@@ -51,20 +52,38 @@ public class TextPositionComparator implements Comparator<TextPosition>
 
         float yDifference = Math.abs(pos1YBottom - pos2YBottom);
 
-        // we will do a simple tolerance comparison
-        if (yDifference < .1 ||
-            pos2YBottom >= pos1YTop && pos2YBottom <= pos1YBottom ||
-            pos1YBottom >= pos2YTop && pos1YBottom <= pos2YBottom)
-        {
+        if (yDifference < .1){
             return Float.compare(x1, x2);
         }
-        else if (pos1YBottom < pos2YBottom)
-        {
+        if(pos2YBottom >= pos1YTop && pos2YBottom <= pos1YBottom){
+            return Float.compare(x1, x2);
+        }
+        if(pos1YBottom >= pos2YTop && pos1YBottom <= pos2YBottom){
+            return Float.compare(x1, x2);
+        }
+        if (pos1YBottom == pos2YBottom || pos1YTop==pos2YTop){
+            return Float.compare(x1, x2);
+        }
+        if (pos1YBottom < pos2YBottom){
             return -1;
         }
-        else
-        {
-            return 1;
-        }
+        return 1;
+
+        // we will do a simple tolerance comparison
+//        if (yDifference < .1 ||
+//            pos2YBottom >= pos1YTop && pos2YBottom <= pos1YBottom ||
+//            pos1YBottom >= pos2YTop && pos1YBottom <= pos2YBottom
+//        )
+//        {
+//            return Float.compare(x1, x2);
+//        }
+//        else if (pos1YBottom < pos2YBottom)
+//        {
+//            return -1;
+//        }
+//        else
+//        {
+//            return 1;
+//        }
     }
 }
